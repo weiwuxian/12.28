@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="Content/css/style.css">
+    <script src="Script/angularjs/angular.js"></script>
+</head>
+
+<body ng-app="app">
+    <div class="wrap" ng-controller="formController">
+        <div class="top">
+            <ul>
+                <li ng-click="dd()">登录</li>
+                <li ng-click="zc()">注册</li>
+            </ul>
+        </div>
+        <form ng-show="login" class="box1">
+            <ul>
+                <li>账 号</li>
+                <li>密 码</li>
+            </ul>
+            <ol>
+                <li><input type="text" placeholder="请输入登录用户名" ng-model="user"></li>
+                <li><input type="password" placeholder="请输入密码"></li>
+            </ol>
+            <button type="submit" ng-click="dl()">登录</button>
+        </form>
+        <form ng-show="singup" class="box1">
+            <ul>
+                <li>账 号</li>
+                <li>密 码</li>
+                <li>验 证</li>
+            </ul>
+            <ol>
+                <li><input type="text" placeholder="请输入登录用户名"></li>
+                <li><input type="password" placeholder="请输入密码"></li>
+                <li><input type="text" placeholder="请输入验证码"></li>
+            </ol>
+            <button type="submit" ng-click="zz()">注册</button>
+        </form>
+    </div>
+</body>
+<script>
+    var app = angular.module("app", []);
+    app.controller("formController", function($scope) {
+        $scope.login = true;
+        $scope.singup = false;
+        $scope.dd = function() {
+            $scope.login = true;
+            $scope.singup = false;
+        }
+        $scope.zc = function() {
+            $scope.login = false;
+            $scope.singup = true;
+        }
+        $scope.dl = function() {
+            $scope.login = false;
+            $scope.singup = true;
+        }
+        $scope.zz = function() {
+            $scope.login = true;
+            $scope.singup = false;
+        }
+    })
+</script>
+
+</html>
